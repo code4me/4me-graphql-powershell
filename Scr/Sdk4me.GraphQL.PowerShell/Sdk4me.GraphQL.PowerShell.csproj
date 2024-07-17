@@ -1,0 +1,83 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;net472;net6.0;net8.0</TargetFrameworks>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<LangVersion>9</LangVersion>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<AssemblyVersion>1.4</AssemblyVersion>
+		<FileVersion>1.4</FileVersion>
+		<Version>1.4</Version>
+		<Title>Sdk4me.GraphQL.PowerShell</Title>
+		<Company>4me Inc.</Company>
+		<Authors>Klaas Vandeweerdt</Authors>
+		<Copyright>Copyright (c) 2024 4me Inc.</Copyright>
+		<PackageProjectUrl>https://developer.4me.com/graphql</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/code4me/4me-graphql-powershell</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>4me;Sdk4me;GraphQL;PowerShell</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+		<Description>A PowerShell module for accessing the 4me GraphQL API</Description>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+	  <WarningLevel>5</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+	  <WarningLevel>5</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net472|AnyCPU'">
+	  <WarningLevel>5</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net472|AnyCPU'">
+	  <WarningLevel>5</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0|AnyCPU'">
+	  <WarningLevel>7</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0|AnyCPU'">
+	  <WarningLevel>7</WarningLevel>
+	</PropertyGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)'=='net472' Or '$(TargetFramework)'=='netstandard2.0'">
+		<PackageReference Include="Microsoft.Bcl.HashCode" Version="1.1.1" />
+		<PackageReference Include="System.Collections.Immutable" Version="8.0.0" />
+		<PackageReference Include="System.Net.Http" Version="4.3.4" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="PowerShellStandard.Library" Version="5.1.1" />
+		<PackageReference Include="Sdk4me.GraphQL" Version="1.4.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Sdk4me.GraphQL.PowerShell.psd1">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<Target Name="CopyHelpFilesBuild" AfterTargets="Build">
+		<Copy SourceFiles="$(ProjectDir)\Help\help.xml" DestinationFiles="$(OutputPath)\$(AssemblyName).dll-Help.xml" Condition="'$(TargetFramework)' != '' And $(ProjectDir) != ''" />
+	</Target>
+
+	<Target Name="CopyHelpFilesPublish" AfterTargets="Publish">
+		<Copy SourceFiles="$(ProjectDir)\Help\help.xml" DestinationFiles="$(PublishDir)\$(AssemblyName).dll-Help.xml" Condition="'$(TargetFramework)' != '' And $(ProjectDir) != ''" />
+	</Target>
+
+</Project>

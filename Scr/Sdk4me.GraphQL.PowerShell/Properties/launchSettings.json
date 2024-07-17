@@ -1,0 +1,20 @@
+{
+  "profiles": {
+    "Sdk4me.GraphQL.PowerShell": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "-": ""
+      }
+    },
+    "PowerShell 5.1": {
+      "commandName": "Executable",
+      "executablePath": "%SystemRoot%\\system32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "commandLineArgs": "-NoExit -Command \"& {Import-Module '$(TargetDir)Sdk4me.GraphQL.PowerShell.psd1' -Force; Set-Location \\}\""
+    },
+    "PowerShell 7": {
+      "commandName": "Executable",
+      "executablePath": "%programfiles%\\PowerShell\\7\\pwsh.exe",
+      "commandLineArgs": "-NoExit -Command \"& {Import-Module '$(TargetDir)Sdk4me.GraphQL.PowerShell.psd1' -Force; Set-Location \\}\""
+    }
+  }
+}
