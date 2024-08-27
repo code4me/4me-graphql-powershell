@@ -1,7 +1,7 @@
 ﻿# PowerShell Module for 4me GraphQL
 A PowerShell Module for accessing the [4me GraphQL API](https://developer.4me.com/graphql/).
 
-This module is compatible with both Windows and PowerShell.
+This module is compatible with both Windows PowerShell and PowerShell.
 
 ## Table of Contents
 - [Licensing](#licensing)
