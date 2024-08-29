@@ -126,7 +126,7 @@ These detailed entries can be helpful for debugging issues and auditing purposes
 
 ## Minimal example
 ```powershell
-Import-Module Sdk4me.GraphQL.PowerShell
+Import-Module ./Sdk4me.GraphQL.PowerShell
 
 $connection = New-4meConnection -AccountID 'accountID' `
     -EnvironmentType Quality `
