@@ -644,7 +644,7 @@ git clone https://github.com/code4me/4me-graphql-powershell.git
 
 ## 2. Build the Solution
 After cloning the repository, you can build the solution using the `dotnet publish` command.
-The project file is located in the `Src/Sdk4me.GraphQL.PowerShell` directory within the repository.
+The project file is located in the `Scr/Sdk4me.GraphQL.PowerShell` directory within the repository.
 Navigate to the cloned repository folder and run the following command to build the solution, replacing `"output path"` with the desired output directory:
 ```
 dotnet publish "Sdk4me.GraphQL.PowerShell.csproj" -c Release -f "netstandard2.0" -o "output path"
