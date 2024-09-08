@@ -6,7 +6,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
     /// Represents a PowerShell cmdlet for invoking a Team query.
     /// </summary>
     [Cmdlet(VerbsLifecycle.Invoke, "TeamQuery")]
-    [OutputType(typeof(Team))]
+    [OutputType(typeof(Team[]))]
     public class InvokeTeamQueryCommand : InvokeQueryCommand<Team, TeamQuery>
     {
     }

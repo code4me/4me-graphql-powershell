@@ -55,40 +55,46 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
         public string? Information { get; set; }
 
         /// <summary>
-        /// Name of the collection element.
+        /// The attachments used in the information field.
         /// </summary>
         [Parameter(Mandatory = false, Position = 7, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        public AttachmentInput[] InformationAttachments { get; set; } = Array.Empty<AttachmentInput>();
+
+        /// <summary>
+        /// Name of the collection element.
+        /// </summary>
+        [Parameter(Mandatory = false, Position = 8, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? Name { get; set; }
 
         /// <summary>
         /// The Reference field defaults to the Name field value, written in lower case characters and with all spaces replaced by the underscore character.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 8, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 9, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? Reference { get; set; }
 
         /// <summary>
         /// An identifier for the client application submitting the resource or the name of an external system.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 9, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 10, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? Source { get; set; }
 
         /// <summary>
         /// The unique identifier of the resource in an external system.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 10, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 11, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? SourceID { get; set; }
 
         /// <summary>
         /// An array of Custom collection element properties to include in the response.
         /// </summary>
-        [Parameter(Mandatory = true, Position = 11, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = true, Position = 12, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public CustomCollectionElementField[] Properties { get; set; } = Array.Empty<CustomCollectionElementField>();
 
         /// <summary>
         /// The client used to execute the update mutation. If not provided, the default client is used.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 12, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 13, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public Sdk4mePowerShellClient? Client { get; set; }
 
@@ -134,6 +140,10 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
             if (MyInvocation.BoundParameters.ContainsKey("Information"))
             {
                 input.Information = Information;
+            }
+            if (MyInvocation.BoundParameters.ContainsKey("InformationAttachments"))
+            {
+                input.InformationAttachments = InformationAttachments.ToList();
             }
             if (MyInvocation.BoundParameters.ContainsKey("Name"))
             {

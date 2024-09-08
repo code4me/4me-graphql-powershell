@@ -64,93 +64,107 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
         public AccountQuery Account { get; set; } = new();
 
         /// <summary>
-        /// Specify the Assignments to be returned using a project task template assignment query.
+        /// Specify the Agile board to be returned using an agile board query.
         /// </summary>
         [Parameter(Mandatory = false, Position = 7, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [ValidateNotNull]
+        public AgileBoardQuery AgileBoard { get; set; } = new();
+
+        /// <summary>
+        /// Specify the Agile board column to be returned using an agile board column query.
+        /// </summary>
+        [Parameter(Mandatory = false, Position = 8, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [ValidateNotNull]
+        public AgileBoardColumnQuery AgileBoardColumn { get; set; } = new();
+
+        /// <summary>
+        /// Specify the Assignments to be returned using a project task template assignment query.
+        /// </summary>
+        [Parameter(Mandatory = false, Position = 9, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public ProjectTaskTemplateAssignmentQuery Assignments { get; set; } = new();
 
         /// <summary>
         /// Specify the Automation rules to be returned using an automation rule query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 8, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 10, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public AutomationRuleQuery AutomationRules { get; set; } = new();
 
         /// <summary>
         /// Specify the Effort class to be returned using an effort class query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 9, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 11, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public EffortClassQuery EffortClass { get; set; } = new();
 
         /// <summary>
         /// Specify the Instructions attachments to be returned using an attachment query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 10, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 12, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public AttachmentQuery InstructionsAttachments { get; set; } = new();
 
         /// <summary>
         /// Specify the Note attachments to be returned using an attachment query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 11, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 13, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public AttachmentQuery NoteAttachments { get; set; } = new();
 
         /// <summary>
         /// Specify the Pdf design to be returned using a pdf design query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 12, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 14, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public PdfDesignQuery PdfDesign { get; set; } = new();
 
         /// <summary>
         /// Specify the Project templates to be returned using a project template query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 13, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 15, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public ProjectTemplateQuery ProjectTemplates { get; set; } = new();
 
         /// <summary>
         /// Specify the Skill pool to be returned using a skill pool query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 14, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 16, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public SkillPoolQuery SkillPool { get; set; } = new();
 
         /// <summary>
         /// Specify the Supplier to be returned using an organization query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 15, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 17, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public OrganizationQuery Supplier { get; set; } = new();
 
         /// <summary>
         /// Specify the Tasks to be returned using a project task query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 16, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 18, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public ProjectTaskQuery Tasks { get; set; } = new();
 
         /// <summary>
         /// Specify the Team to be returned using a team query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 17, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 19, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public TeamQuery Team { get; set; } = new();
 
         /// <summary>
         /// Specify the UI extension to be returned using an user interface extension query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 18, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 20, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public UiExtensionQuery UiExtension { get; set; } = new();
 
         /// <summary>
         /// An array of additional filters to apply to the a project task template query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 19, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 21, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public QueryFilter<ProjectTaskTemplateQuery>[] Filters { get; set; } = Array.Empty<QueryFilter<ProjectTaskTemplateQuery>>();
 
@@ -186,6 +200,14 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
             if (MyInvocation.BoundParameters.ContainsKey("Account"))
             {
                 retval.SelectAccount(Account);
+            }
+            if (MyInvocation.BoundParameters.ContainsKey("AgileBoard"))
+            {
+                retval.SelectAgileBoard(AgileBoard);
+            }
+            if (MyInvocation.BoundParameters.ContainsKey("AgileBoardColumn"))
+            {
+                retval.SelectAgileBoardColumn(AgileBoardColumn);
             }
             if (MyInvocation.BoundParameters.ContainsKey("Assignments"))
             {

@@ -6,7 +6,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
     /// Represents a PowerShell cmdlet for invoking a Configuration item query.
     /// </summary>
     [Cmdlet(VerbsLifecycle.Invoke, "ConfigurationItemQuery")]
-    [OutputType(typeof(ConfigurationItem))]
+    [OutputType(typeof(ConfigurationItem[]))]
     public class InvokeConfigurationItemQueryCommand : InvokeQueryCommand<ConfigurationItem, ConfigurationItemQuery>
     {
     }

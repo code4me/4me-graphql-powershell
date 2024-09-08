@@ -6,7 +6,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
     /// Represents a PowerShell cmdlet for invoking an Automation rule query.
     /// </summary>
     [Cmdlet(VerbsLifecycle.Invoke, "AutomationRuleQuery")]
-    [OutputType(typeof(AutomationRule))]
+    [OutputType(typeof(AutomationRule[]))]
     public class InvokeAutomationRuleQueryCommand : InvokeQueryCommand<AutomationRule, AutomationRuleQuery>
     {
     }

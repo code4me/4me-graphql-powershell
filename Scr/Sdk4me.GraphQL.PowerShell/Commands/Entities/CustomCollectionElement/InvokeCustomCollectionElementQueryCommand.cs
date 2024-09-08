@@ -6,7 +6,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
     /// Represents a PowerShell cmdlet for invoking a Custom collection element query.
     /// </summary>
     [Cmdlet(VerbsLifecycle.Invoke, "CustomCollectionElementQuery")]
-    [OutputType(typeof(CustomCollectionElement))]
+    [OutputType(typeof(CustomCollectionElement[]))]
     public class InvokeCustomCollectionElementQueryCommand : InvokeQueryCommand<CustomCollectionElement, CustomCollectionElementQuery>
     {
     }

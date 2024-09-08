@@ -6,7 +6,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
     /// Represents a PowerShell cmdlet for invoking a Person query.
     /// </summary>
     [Cmdlet(VerbsLifecycle.Invoke, "PersonQuery")]
-    [OutputType(typeof(Person))]
+    [OutputType(typeof(Person[]))]
     public class InvokePersonQueryCommand : InvokeQueryCommand<Person, PersonQuery>
     {
     }

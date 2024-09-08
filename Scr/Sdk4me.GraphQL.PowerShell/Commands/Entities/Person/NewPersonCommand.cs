@@ -104,160 +104,166 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
         public string? Information { get; set; }
 
         /// <summary>
-        /// The person&apos;s job title.
+        /// The attachments used in the information field.
         /// </summary>
         [Parameter(Mandatory = false, Position = 15, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        public AttachmentInput[] InformationAttachments { get; set; } = Array.Empty<AttachmentInput>();
+
+        /// <summary>
+        /// The person&apos;s job title.
+        /// </summary>
+        [Parameter(Mandatory = false, Position = 16, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? JobTitle { get; set; }
 
         /// <summary>
         /// The language preference of the person.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 16, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 17, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? Language { get; set; }
 
         /// <summary>
         /// The name or number of the room, cubicle or area where the person has his/her primary work space.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 17, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 18, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? Location { get; set; }
 
         /// <summary>
         /// The manager or supervisor to whom the person reports.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 18, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 19, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? ManagerId { get; set; }
 
         /// <summary>
         /// Permissions for specific accounts of this person to add or update. Permissions for other accounts will not be altered.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 19, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 20, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public PermissionInput[] NewAccountPermissions { get; set; } = Array.Empty<PermissionInput>();
 
         /// <summary>
         /// New or updated addresses of this person.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 20, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 21, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public AddressInput[] NewAddresses { get; set; } = Array.Empty<AddressInput>();
 
         /// <summary>
         /// New or updated contacts of this person.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 21, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 22, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public ContactInput[] NewContacts { get; set; } = Array.Empty<ContactInput>();
 
         /// <summary>
         /// An enabled OAuth person is mentionable and visible in suggest fields, just like a real person.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 22, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 23, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public bool OauthPersonEnablement { get; set; } = false;
 
         /// <summary>
         /// The organization for which the person works as an employee or long-term contractor.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 23, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 24, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? OrganizationId { get; set; }
 
         /// <summary>
         /// Permissions of this person. These will overwrite all existing permissions of this person.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 24, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 25, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public PermissionInput[] Permissions { get; set; } = Array.Empty<PermissionInput>();
 
         /// <summary>
         /// The hyperlink to the image file for the record.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 25, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 26, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? PictureUri { get; set; }
 
         /// <summary>
         /// Indicates when to send email notifications to the person.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 26, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 27, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public PersonSendEmailNotifications? SendEmailNotifications { get; set; }
 
         /// <summary>
         /// Indicates when to show a notification popup to the person.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 27, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 28, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public PersonShowNotificationPopup? ShowNotificationPopup { get; set; }
 
         /// <summary>
         /// Where the person is stationed.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 28, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 29, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? SiteId { get; set; }
 
         /// <summary>
         /// Skill pools this person belongs to.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 29, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 30, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string[] SkillPoolIds { get; set; } = Array.Empty<string>();
 
         /// <summary>
         /// An identifier for the client application submitting the resource or the name of an external system.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 30, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 31, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? Source { get; set; }
 
         /// <summary>
         /// The unique identifier of the resource in an external system.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 31, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 32, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? SourceID { get; set; }
 
         /// <summary>
         /// A number or code that a service desk analyst can ask the person for when the person contacts the service desk for support.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 32, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 33, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? SupportID { get; set; }
 
         /// <summary>
         /// Teams this person belongs to.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 33, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 34, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string[] TeamIds { get; set; } = Array.Empty<string>();
 
         /// <summary>
         /// Whether the person prefers to see times displayed within the 4me service in the 24-hour format or not (in which case the 12-hour format is applied).
         /// </summary>
-        [Parameter(Mandatory = false, Position = 34, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 35, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public bool TimeFormat24h { get; set; } = false;
 
         /// <summary>
         /// The time zone in which the person normally resides.The complete list is available on the 4me developer site.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 35, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 36, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? TimeZone { get; set; }
 
         /// <summary>
         /// UI extension that is to be applied to the record.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 36, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 37, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? UiExtensionId { get; set; }
 
         /// <summary>
         /// Whether the person is a very important person.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 37, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 38, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public bool Vip { get; set; } = false;
 
         /// <summary>
         /// Calendar that represents the work hours of the person.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 38, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 39, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? WorkHoursId { get; set; }
 
         /// <summary>
         /// An array of person properties to include in the response.
         /// </summary>
-        [Parameter(Mandatory = true, Position = 39, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = true, Position = 40, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public PersonField[] Properties { get; set; } = Array.Empty<PersonField>();
 
         /// <summary>
         /// The client used to execute the create mutation. If not provided, the default client is used.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 40, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 41, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public Sdk4mePowerShellClient? Client { get; set; }
 
@@ -335,6 +341,10 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
             if (MyInvocation.BoundParameters.ContainsKey("Information"))
             {
                 input.Information = Information;
+            }
+            if (MyInvocation.BoundParameters.ContainsKey("InformationAttachments"))
+            {
+                input.InformationAttachments = InformationAttachments.ToList();
             }
             if (MyInvocation.BoundParameters.ContainsKey("JobTitle"))
             {

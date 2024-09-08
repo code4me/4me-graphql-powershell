@@ -6,7 +6,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
     /// Represents a PowerShell cmdlet for invoking a Trash query.
     /// </summary>
     [Cmdlet(VerbsLifecycle.Invoke, "TrashQuery")]
-    [OutputType(typeof(Trash))]
+    [OutputType(typeof(Trash[]))]
     public class InvokeTrashQueryCommand : InvokeQueryCommand<Trash, TrashQuery>
     {
     }

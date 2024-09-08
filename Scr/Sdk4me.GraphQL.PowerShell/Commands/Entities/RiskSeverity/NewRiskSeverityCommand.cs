@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Management.Automation;
 
 namespace Sdk4me.GraphQL.PowerShell.Commands
@@ -42,34 +43,40 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
         public string? Information { get; set; }
 
         /// <summary>
-        /// The position that the risk severity takes when it is displayed in a sorted list.
+        /// The attachments used in the information field.
         /// </summary>
         [Parameter(Mandatory = false, Position = 5, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        public AttachmentInput[] InformationAttachments { get; set; } = Array.Empty<AttachmentInput>();
+
+        /// <summary>
+        /// The position that the risk severity takes when it is displayed in a sorted list.
+        /// </summary>
+        [Parameter(Mandatory = false, Position = 6, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public long? Position { get; set; }
 
         /// <summary>
         /// An identifier for the client application submitting the resource or the name of an external system.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 6, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 7, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? Source { get; set; }
 
         /// <summary>
         /// The unique identifier of the resource in an external system.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 7, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 8, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? SourceID { get; set; }
 
         /// <summary>
         /// An array of risk severity properties to include in the response.
         /// </summary>
-        [Parameter(Mandatory = true, Position = 8, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = true, Position = 9, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public RiskSeverityField[] Properties { get; set; } = Array.Empty<RiskSeverityField>();
 
         /// <summary>
         /// The client used to execute the create mutation. If not provided, the default client is used.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 9, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 10, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public Sdk4mePowerShellClient? Client { get; set; }
 
@@ -107,6 +114,10 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
             if (MyInvocation.BoundParameters.ContainsKey("Information"))
             {
                 input.Information = Information;
+            }
+            if (MyInvocation.BoundParameters.ContainsKey("InformationAttachments"))
+            {
+                input.InformationAttachments = InformationAttachments.ToList();
             }
             if (MyInvocation.BoundParameters.ContainsKey("Position"))
             {

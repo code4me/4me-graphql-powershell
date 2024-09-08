@@ -6,7 +6,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
     /// Represents a PowerShell cmdlet for invoking a Project category query.
     /// </summary>
     [Cmdlet(VerbsLifecycle.Invoke, "ProjectCategoryQuery")]
-    [OutputType(typeof(ProjectCategory))]
+    [OutputType(typeof(ProjectCategory[]))]
     public class InvokeProjectCategoryQueryCommand : InvokeQueryCommand<ProjectCategory, ProjectCategoryQuery>
     {
     }

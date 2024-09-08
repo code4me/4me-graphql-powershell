@@ -6,7 +6,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
     /// Represents a PowerShell cmdlet for invoking a Project risk level query.
     /// </summary>
     [Cmdlet(VerbsLifecycle.Invoke, "ProjectRiskLevelQuery")]
-    [OutputType(typeof(ProjectRiskLevel))]
+    [OutputType(typeof(ProjectRiskLevel[]))]
     public class InvokeProjectRiskLevelQueryCommand : InvokeQueryCommand<ProjectRiskLevel, ProjectRiskLevelQuery>
     {
     }

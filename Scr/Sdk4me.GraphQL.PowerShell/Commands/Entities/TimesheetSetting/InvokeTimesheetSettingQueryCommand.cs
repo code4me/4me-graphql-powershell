@@ -6,7 +6,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
     /// Represents a PowerShell cmdlet for invoking a Timesheet setting query.
     /// </summary>
     [Cmdlet(VerbsLifecycle.Invoke, "TimesheetSettingQuery")]
-    [OutputType(typeof(TimesheetSetting))]
+    [OutputType(typeof(TimesheetSetting[]))]
     public class InvokeTimesheetSettingQueryCommand : InvokeQueryCommand<TimesheetSetting, TimesheetSettingQuery>
     {
     }

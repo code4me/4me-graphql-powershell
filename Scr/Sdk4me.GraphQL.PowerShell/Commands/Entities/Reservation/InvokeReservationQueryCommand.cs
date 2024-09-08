@@ -6,7 +6,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
     /// Represents a PowerShell cmdlet for invoking a Reservation query.
     /// </summary>
     [Cmdlet(VerbsLifecycle.Invoke, "ReservationQuery")]
-    [OutputType(typeof(Reservation))]
+    [OutputType(typeof(Reservation[]))]
     public class InvokeReservationQueryCommand : InvokeQueryCommand<Reservation, ReservationQuery>
     {
     }

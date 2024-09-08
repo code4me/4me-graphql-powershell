@@ -6,7 +6,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
     /// Represents a PowerShell cmdlet for invoking a Problem query.
     /// </summary>
     [Cmdlet(VerbsLifecycle.Invoke, "ProblemQuery")]
-    [OutputType(typeof(Problem))]
+    [OutputType(typeof(Problem[]))]
     public class InvokeProblemQueryCommand : InvokeQueryCommand<Problem, ProblemQuery>
     {
     }

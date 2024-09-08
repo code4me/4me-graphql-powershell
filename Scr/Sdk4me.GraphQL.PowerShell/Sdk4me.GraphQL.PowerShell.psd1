@@ -3,7 +3,7 @@
     RootModule = 'Sdk4me.GraphQL.PowerShell.dll'
 
     # Version number of this module.
-    ModuleVersion = '1.4'
+    ModuleVersion = '1.4.2'
 
     # ID used to uniquely identify this module
     GUID = '3443686b-7b29-46dc-8798-aa15883f2864'
@@ -73,6 +73,7 @@
         'New-ArchiveQuery',
         'New-ArchiveQueryFilter',
         'New-AsyncQueryQuery',
+        'New-Attachment',
         'Send-Attachment',
         'New-AttachmentQuery',
         'Invoke-AttachmentStorageQuery',
@@ -123,6 +124,7 @@
         'Add-CustomField',
         'New-CustomFieldCollection',
         'New-CustomFieldQuery',
+        'Show-CustomFields',
         'New-CustomFilter',
         'Save-DataExport',
         'Start-DataExport',

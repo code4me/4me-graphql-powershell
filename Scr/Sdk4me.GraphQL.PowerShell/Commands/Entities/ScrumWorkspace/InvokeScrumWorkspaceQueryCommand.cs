@@ -6,7 +6,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
     /// Represents a PowerShell cmdlet for invoking a Scrum workspace query.
     /// </summary>
     [Cmdlet(VerbsLifecycle.Invoke, "ScrumWorkspaceQuery")]
-    [OutputType(typeof(ScrumWorkspace))]
+    [OutputType(typeof(ScrumWorkspace[]))]
     public class InvokeScrumWorkspaceQueryCommand : InvokeQueryCommand<ScrumWorkspace, ScrumWorkspaceQuery>
     {
     }

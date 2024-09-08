@@ -6,7 +6,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
     /// Represents a PowerShell cmdlet for invoking a Request query.
     /// </summary>
     [Cmdlet(VerbsLifecycle.Invoke, "RequestQuery")]
-    [OutputType(typeof(Request))]
+    [OutputType(typeof(Request[]))]
     public class InvokeRequestQueryCommand : InvokeQueryCommand<Request, RequestQuery>
     {
     }
