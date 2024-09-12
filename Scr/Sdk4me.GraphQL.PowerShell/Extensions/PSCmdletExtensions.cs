@@ -37,9 +37,9 @@ namespace Sdk4me.GraphQL.PowerShell
         {
             foreach (KeyValuePair<string, object> boundParameter in cmdlet.MyInvocation.BoundParameters)
             {
-                if (cmdlet is NewConnectionCommand &&
-                    (boundParameter.Key == nameof(NewConnectionCommand.PersonalAccessToken) ||
-                     boundParameter.Key == nameof(NewConnectionCommand.ClientSecret)))
+                if (cmdlet is NewClientCommand &&
+                    (boundParameter.Key == nameof(NewClientCommand.PersonalAccessToken) ||
+                     boundParameter.Key == nameof(NewClientCommand.ClientSecret)))
                 {
                     cmdlet.WriteVerbose($"[{DateTime.Now:yyyy-MM-ddTHH:mm:ss.fffK}] [{cmdlet.MyInvocation.MyCommand.Name}] Parameter: {boundParameter.Key} | Value: ***");
                 }

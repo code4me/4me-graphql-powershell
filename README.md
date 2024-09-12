@@ -53,7 +53,7 @@ The data entities in the module are modeled after the 4me Quality Assurance Grap
 The `Sdk4mePowerShellClient` object provides access to 4me GraphQL API for querying and modifying data and contains five properties that allow for default behavior customization:
 - The `AccountID` property to update the 4me AccountID after initializing the `Sdk4mePowerShellClient`, allowing switching between accounts using the same client.
 - The `EnumeratorTolerantSerializer` property, when set to true, allows for ignoring unmappable enumerator values and instead returns null or a default value.
-- The `DefaultItemsPerRequest` property sets the number of items per connection request, with a default and maximum value of 100.
+- The `DefaultItemsPerRequest` property sets the number of items per request, with a default and maximum value of 100.
 - The `MaximumRecursiveRequests` property controls the number of recursive requests that the client can make when pagination occurs in the top-level query. The default value is 10.
 - The `MaximumQueryDepthLevelConnections` property controls the depth of nested queries. While it is possible to increase this limit, it can negatively affect performance. The default value is 2.
 
@@ -128,7 +128,7 @@ These detailed entries can be helpful for debugging issues and auditing purposes
 ```powershell
 Import-Module ./Sdk4me.GraphQL.PowerShell
 
-$connection = New-4meConnection -AccountID 'accountID' `
+$client = New-4meClient -AccountID 'accountID' `
     -EnvironmentType Quality `
     -EnvironmentRegion EU `
     -PersonalAccessToken '***'
@@ -142,7 +142,7 @@ Invoke-4meMeQuery -Query $meQuery
 ### Personal Access Token
 To authenticate using a personal access token, use the following command:
 ```powershell
-$connection = New-4meConnection -AccountID 'accountID' `
+$client = New-4meClient -AccountID 'accountID' `
     -EnvironmentType Quality `
     -EnvironmentRegion EU `
     -PersonalAccessToken '***'
@@ -151,7 +151,7 @@ $connection = New-4meConnection -AccountID 'accountID' `
 ### OAuth 2
 To authenticate using OAuth 2, use the following command:
 ```powershell
-$connection = New-4meConnection -AccountID 'accountID' `
+$client = New-4meClient -AccountID 'accountID' `
     -EnvironmentType Quality `
     -EnvironmentRegion EU `
     -ClientID '3ukt.....kvsZdz' `
@@ -191,7 +191,7 @@ Invoke-4meServiceInstanceQuery $siQuery | Format-Table ID,Name,Status
 This example demonstrates a nested query to fetch people along with their associated teams and their members, including the members' configuration items.
 ```powershell
 
-$connection = New-4meConnection -AccountID 'accountID' `
+$client = New-4meClient -AccountID 'accountID' `
     -EnvironmentType Quality `
     -EnvironmentRegion EU `
     -PersonalAccessToken '***' `
@@ -199,8 +199,8 @@ $connection = New-4meConnection -AccountID 'accountID' `
     -DefaultItemsPerRequest 100
 
 # Alternatively, you can set the properties after creating the connection:
-# $connection.MaximumQueryDepthLevelConnections = 4
-# $connection.DefaultItemsPerRequest = 100
+# $client.MaximumQueryDepthLevelConnections = 4
+# $client.DefaultItemsPerRequest = 100
 
 $ciQuery = New-4meConfigurationItemQuery -Properties Name,Label,Status
 $memberQuery = New-4mePersonQuery -Properties ID,Name -ConfigurationItems $ciQuery
@@ -555,21 +555,21 @@ Errors    : 0
 ```
 
 ## Multiple Clients
-Each CmdLet that invokes a query or mutation has a `Client` argument.
+Each CmdLet that invokes a query or mutation has a `Client` argument. If no `Client` is specified in an execution command, it will default to using the first created client.
 
 ### Example
 ```powershell
-$connections = @{
-    "Support-Domain-1" = New-4meConnection -AccountID 'Support-Domain-1' -EnvironmentType Quality -EnvironmentRegion EU -PersonalAccessToken '***'
-    "Support-Domain-2" = New-4meConnection -AccountID 'Support-Domain-2' -EnvironmentType Production -EnvironmentRegion EU -PersonalAccessToken '***'
-    "DA" = New-4meConnection -AccountID 'DA' -EnvironmentType Quality -EnvironmentRegion EU -PersonalAccessToken '***'
+$clients = @{
+    "Support-Domain-1" = New-4meClient -AccountID 'Support-Domain-1' -EnvironmentType Quality -EnvironmentRegion EU -PersonalAccessToken '***'
+    "Support-Domain-2" = New-4meClient -AccountID 'Support-Domain-2' -EnvironmentType Production -EnvironmentRegion EU -PersonalAccessToken '***'
+    "DA" = New-4meClient -AccountID 'DA' -EnvironmentType Quality -EnvironmentRegion EU -PersonalAccessToken '***'
 }
 
 $meQuery = New-4meMeQuery -Properties ID,Name,PrimaryEmail
-$me = Invoke-4meMeQuery -Query $meQuery -Client $connections["DA"]
+$me = Invoke-4meMeQuery -Query $meQuery -Client $clients["DA"]
 
 $forQuery = New-4mePersonQuery -ID 'NG1lLnFhL1BlcnNvbi8zMjI0MTU4' -Properties ID,Name
-$for = Invoke-4mePersonQuery -Query $forQuery -Client $connections["DA"]
+$for = Invoke-4mePersonQuery -Query $forQuery -Client $clients["DA"]
 
 $request = New-4meRequest `
     -Subject 'Subject' `
@@ -577,7 +577,7 @@ $request = New-4meRequest `
     -TemplateId 'NG1lLnFhL3JlcXVlc3RfdGVtcGxhdGUvMTIz' `
     -RequestedForId $for.ID `
     -Properties RequestId `
-    -Client $connections["Support-Domain-1"]
+    -Client $clients["Support-Domain-1"]
 
 Write-Host "Request `#$($request.RequestId) was created for $($for.Name)"
 ```
@@ -589,16 +589,16 @@ When verbose mode is enabled, it will show all parameters and provide detailed i
 
 ### Example
 ```powershell
-$connection = New-4meConnection -AccountID 'accountID' -EnvironmentType Quality -EnvironmentRegion EU -PersonalAccessToken '***' -Verbose
+$client = New-4meClient -AccountID 'accountID' -EnvironmentType Quality -EnvironmentRegion EU -PersonalAccessToken '***' -Verbose
 ```
 ```
-VERBOSE: [2024-07-29T01:48:42.644+02:00] [New-4meConnection] Start
-VERBOSE: [2024-07-29T01:48:42.647+02:00] [New-4meConnection] Parameter: AccountID | Value: account-id
-VERBOSE: [2024-07-29T01:48:42.647+02:00] [New-4meConnection] Parameter: EnvironmentType | Value: Quality
-VERBOSE: [2024-07-29T01:48:42.647+02:00] [New-4meConnection] Parameter: EnvironmentRegion | Value: EU
-VERBOSE: [2024-07-29T01:48:42.647+02:00] [New-4meConnection] Parameter: PersonalAccessToken | Value: ***
-VERBOSE: [2024-07-29T01:48:42.647+02:00] [New-4meConnection] Parameter: Verbose | Value: True
-VERBOSE: [2024-07-29T01:48:42.647+02:00] [New-4meConnection] End
+VERBOSE: [2024-07-29T01:48:42.644+02:00] [New-4meClient] Start
+VERBOSE: [2024-07-29T01:48:42.647+02:00] [New-4meClient] Parameter: AccountID | Value: account-id
+VERBOSE: [2024-07-29T01:48:42.647+02:00] [New-4meClient] Parameter: EnvironmentType | Value: Quality
+VERBOSE: [2024-07-29T01:48:42.647+02:00] [New-4meClient] Parameter: EnvironmentRegion | Value: EU
+VERBOSE: [2024-07-29T01:48:42.647+02:00] [New-4meClient] Parameter: PersonalAccessToken | Value: ***
+VERBOSE: [2024-07-29T01:48:42.647+02:00] [New-4meClient] Parameter: Verbose | Value: True
+VERBOSE: [2024-07-29T01:48:42.647+02:00] [New-4meClient] End
 ```
 ```powershell
 $meQuery = New-4meMeQuery -Properties ID,Name,PrimaryEmail -Verbose

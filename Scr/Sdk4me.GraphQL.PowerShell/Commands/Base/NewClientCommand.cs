@@ -6,9 +6,9 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
     /// <summary>
     /// Creates a new connection to the 4me GraphQL API using various authentication methods.
     /// </summary>
-    [Cmdlet(VerbsCommon.New, "Connection")]
+    [Cmdlet(VerbsCommon.New, "Client")]
     [OutputType(typeof(Sdk4mePowerShellClient))]
-    public class NewConnectionCommand : PSCmdlet
+    public class NewClientCommand : PSCmdlet
     {
         /// <summary>
         /// Specifies the client ID required for OAuth authentication.
