@@ -127,163 +127,170 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
         public FeedbackQuery Feedback { get; set; } = new();
 
         /// <summary>
-        /// Specify the Grouped into to be returned using a request query.
+        /// Specify the Feedback on knowledge article to be returned using a knowledge article query.
         /// </summary>
         [Parameter(Mandatory = false, Position = 16, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [ValidateNotNull]
+        public KnowledgeArticleQuery FeedbackOnKnowledgeArticle { get; set; } = new();
+
+        /// <summary>
+        /// Specify the Grouped into to be returned using a request query.
+        /// </summary>
+        [Parameter(Mandatory = false, Position = 17, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public RequestQuery GroupedInto { get; set; } = new();
 
         /// <summary>
         /// Specify the Grouped requests to be returned using a request query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 17, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 18, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public RequestQuery GroupedRequests { get; set; } = new();
 
         /// <summary>
         /// Specify the Knowledge articles to be returned using a knowledge article query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 18, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 19, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public KnowledgeArticleQuery KnowledgeArticles { get; set; } = new();
 
         /// <summary>
         /// Specify the Member to be returned using a person query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 19, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 20, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public PersonQuery Member { get; set; } = new();
 
         /// <summary>
         /// Specify the Notes to be returned using a note query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 20, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 21, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public NoteQuery Notes { get; set; } = new();
 
         /// <summary>
         /// Specify the Organization to be returned using an organization query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 21, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 22, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public OrganizationQuery Organization { get; set; } = new();
 
         /// <summary>
         /// Specify the Problem to be returned using a problem query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 22, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 23, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public ProblemQuery Problem { get; set; } = new();
 
         /// <summary>
         /// Specify the Product backlog to be returned using a product backlog query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 23, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 24, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public ProductBacklogQuery ProductBacklog { get; set; } = new();
 
         /// <summary>
         /// Specify the Project to be returned using a project query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 24, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 25, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public ProjectQuery Project { get; set; } = new();
 
         /// <summary>
         /// Specify the Requested by to be returned using a person query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 25, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 26, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public PersonQuery RequestedBy { get; set; } = new();
 
         /// <summary>
         /// Specify the Requested for to be returned using a person query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 26, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 27, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public PersonQuery RequestedFor { get; set; } = new();
 
         /// <summary>
         /// Specify the Service instance to be returned using a service instance query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 27, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 28, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public ServiceInstanceQuery ServiceInstance { get; set; } = new();
 
         /// <summary>
         /// Specify the Sprint backlog items to be returned using a sprint backlog item query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 28, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 29, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public SprintBacklogItemQuery SprintBacklogItems { get; set; } = new();
 
         /// <summary>
         /// Specify the Supplier to be returned using an organization query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 29, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 30, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public OrganizationQuery Supplier { get; set; } = new();
 
         /// <summary>
         /// Specify the Tags to be returned using a tag query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 30, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 31, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public TagQuery Tags { get; set; } = new();
 
         /// <summary>
         /// Specify the Task to be returned using a task query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 31, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 32, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public TaskQuery Task { get; set; } = new();
 
         /// <summary>
         /// Specify the Team to be returned using a team query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 32, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 33, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public TeamQuery Team { get; set; } = new();
 
         /// <summary>
         /// Specify the Template to be returned using a request template query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 33, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 34, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public RequestTemplateQuery Template { get; set; } = new();
 
         /// <summary>
         /// Specify the Time entries to be returned using a time entry query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 34, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 35, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public TimeEntryQuery TimeEntries { get; set; } = new();
 
         /// <summary>
         /// Specify the Watches to be returned using a watch query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 35, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 36, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public WatchQuery Watches { get; set; } = new();
 
         /// <summary>
         /// Specify the Workflow to be returned using a workflow query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 36, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 37, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public WorkflowQuery Workflow { get; set; } = new();
 
         /// <summary>
         /// An array of additional filters to apply to the a request query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 37, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 38, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public QueryFilter<RequestQuery>[] Filters { get; set; } = Array.Empty<QueryFilter<RequestQuery>>();
 
         /// <summary>
         /// A custom filter to apply to the a request query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 38, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 39, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public CustomFilter[] CustomFilters { get; set; } = Array.Empty<CustomFilter>();
 
@@ -355,6 +362,10 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
             if (MyInvocation.BoundParameters.ContainsKey("Feedback"))
             {
                 retval.SelectFeedback(Feedback);
+            }
+            if (MyInvocation.BoundParameters.ContainsKey("FeedbackOnKnowledgeArticle"))
+            {
+                retval.SelectFeedbackOnKnowledgeArticle(FeedbackOnKnowledgeArticle);
             }
             if (MyInvocation.BoundParameters.ContainsKey("GroupedInto"))
             {

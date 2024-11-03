@@ -127,142 +127,170 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
         public AttachmentQuery PrerequisitesAttachments { get; set; } = new();
 
         /// <summary>
-        /// Specify the Service to be returned using a service query.
+        /// Specify the Resolution target notification scheme high to be returned using a service level agreement notification scheme query.
         /// </summary>
         [Parameter(Mandatory = false, Position = 16, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [ValidateNotNull]
+        public SlaNotificationSchemeQuery ResolutionTargetNotificationSchemeHigh { get; set; } = new();
+
+        /// <summary>
+        /// Specify the Resolution target notification scheme low to be returned using a service level agreement notification scheme query.
+        /// </summary>
+        [Parameter(Mandatory = false, Position = 17, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [ValidateNotNull]
+        public SlaNotificationSchemeQuery ResolutionTargetNotificationSchemeLow { get; set; } = new();
+
+        /// <summary>
+        /// Specify the Resolution target notification scheme medium to be returned using a service level agreement notification scheme query.
+        /// </summary>
+        [Parameter(Mandatory = false, Position = 18, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [ValidateNotNull]
+        public SlaNotificationSchemeQuery ResolutionTargetNotificationSchemeMedium { get; set; } = new();
+
+        /// <summary>
+        /// Specify the Resolution target notification scheme top to be returned using a service level agreement notification scheme query.
+        /// </summary>
+        [Parameter(Mandatory = false, Position = 19, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [ValidateNotNull]
+        public SlaNotificationSchemeQuery ResolutionTargetNotificationSchemeTop { get; set; } = new();
+
+        /// <summary>
+        /// Specify the Response target notification scheme high to be returned using a service level agreement notification scheme query.
+        /// </summary>
+        [Parameter(Mandatory = false, Position = 20, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [ValidateNotNull]
+        public SlaNotificationSchemeQuery ResponseTargetNotificationSchemeHigh { get; set; } = new();
+
+        /// <summary>
+        /// Specify the Response target notification scheme low to be returned using a service level agreement notification scheme query.
+        /// </summary>
+        [Parameter(Mandatory = false, Position = 21, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [ValidateNotNull]
+        public SlaNotificationSchemeQuery ResponseTargetNotificationSchemeLow { get; set; } = new();
+
+        /// <summary>
+        /// Specify the Response target notification scheme medium to be returned using a service level agreement notification scheme query.
+        /// </summary>
+        [Parameter(Mandatory = false, Position = 22, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [ValidateNotNull]
+        public SlaNotificationSchemeQuery ResponseTargetNotificationSchemeMedium { get; set; } = new();
+
+        /// <summary>
+        /// Specify the Response target notification scheme top to be returned using a service level agreement notification scheme query.
+        /// </summary>
+        [Parameter(Mandatory = false, Position = 23, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [ValidateNotNull]
+        public SlaNotificationSchemeQuery ResponseTargetNotificationSchemeTop { get; set; } = new();
+
+        /// <summary>
+        /// Specify the Service to be returned using a service query.
+        /// </summary>
+        [Parameter(Mandatory = false, Position = 24, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public ServiceQuery Service { get; set; } = new();
 
         /// <summary>
         /// Specify the Service hours to be returned using a calendar query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 17, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 25, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public CalendarQuery ServiceHours { get; set; } = new();
 
         /// <summary>
         /// Specify the Service level agreements to be returned using a service level agreement query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 18, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 26, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public ServiceLevelAgreementQuery ServiceLevelAgreements { get; set; } = new();
 
         /// <summary>
         /// Specify the Shop articles to be returned using a shop article query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 19, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 27, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public ShopArticleQuery ShopArticles { get; set; } = new();
 
         /// <summary>
-        /// Specify the SLA notification scheme high to be returned using a service level agreement notification scheme query.
-        /// </summary>
-        [Parameter(Mandatory = false, Position = 20, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
-        [ValidateNotNull]
-        public SlaNotificationSchemeQuery SlaNotificationSchemeHigh { get; set; } = new();
-
-        /// <summary>
-        /// Specify the SLA notification scheme low to be returned using a service level agreement notification scheme query.
-        /// </summary>
-        [Parameter(Mandatory = false, Position = 21, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
-        [ValidateNotNull]
-        public SlaNotificationSchemeQuery SlaNotificationSchemeLow { get; set; } = new();
-
-        /// <summary>
-        /// Specify the SLA notification scheme medium to be returned using a service level agreement notification scheme query.
-        /// </summary>
-        [Parameter(Mandatory = false, Position = 22, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
-        [ValidateNotNull]
-        public SlaNotificationSchemeQuery SlaNotificationSchemeMedium { get; set; } = new();
-
-        /// <summary>
-        /// Specify the SLA notification scheme top to be returned using a service level agreement notification scheme query.
-        /// </summary>
-        [Parameter(Mandatory = false, Position = 23, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
-        [ValidateNotNull]
-        public SlaNotificationSchemeQuery SlaNotificationSchemeTop { get; set; } = new();
-
-        /// <summary>
         /// Specify the Standard service requests to be returned using a standard service request query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 24, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 28, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public StandardServiceRequestQuery StandardServiceRequests { get; set; } = new();
 
         /// <summary>
         /// Specify the Summary attachments to be returned using an attachment query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 25, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 29, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public AttachmentQuery SummaryAttachments { get; set; } = new();
 
         /// <summary>
         /// Specify the Support hours case to be returned using a calendar query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 26, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 30, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public CalendarQuery SupportHoursCase { get; set; } = new();
 
         /// <summary>
         /// Specify the Support hours high to be returned using a calendar query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 27, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 31, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public CalendarQuery SupportHoursHigh { get; set; } = new();
 
         /// <summary>
         /// Specify the Support hours low to be returned using a calendar query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 28, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 32, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public CalendarQuery SupportHoursLow { get; set; } = new();
 
         /// <summary>
         /// Specify the Support hours medium to be returned using a calendar query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 29, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 33, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public CalendarQuery SupportHoursMedium { get; set; } = new();
 
         /// <summary>
         /// Specify the Support hours RFC to be returned using a calendar query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 30, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 34, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public CalendarQuery SupportHoursRfc { get; set; } = new();
 
         /// <summary>
         /// Specify the Support hours RFI to be returned using a calendar query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 31, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 35, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public CalendarQuery SupportHoursRfi { get; set; } = new();
 
         /// <summary>
         /// Specify the Support hours top to be returned using a calendar query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 32, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 36, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public CalendarQuery SupportHoursTop { get; set; } = new();
 
         /// <summary>
         /// Specify the Termination attachments to be returned using an attachment query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 33, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 37, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public AttachmentQuery TerminationAttachments { get; set; } = new();
 
         /// <summary>
         /// Specify the Waiting for customer follow up to be returned using a waiting for customer follow up query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 34, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 38, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public WaitingForCustomerFollowUpQuery WaitingForCustomerFollowUp { get; set; } = new();
 
         /// <summary>
         /// An array of additional filters to apply to the a service offering query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 35, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 39, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public QueryFilter<ServiceOfferingQuery>[] Filters { get; set; } = Array.Empty<QueryFilter<ServiceOfferingQuery>>();
 
@@ -335,6 +363,38 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
             {
                 retval.SelectPrerequisitesAttachments(PrerequisitesAttachments);
             }
+            if (MyInvocation.BoundParameters.ContainsKey("ResolutionTargetNotificationSchemeHigh"))
+            {
+                retval.SelectResolutionTargetNotificationSchemeHigh(ResolutionTargetNotificationSchemeHigh);
+            }
+            if (MyInvocation.BoundParameters.ContainsKey("ResolutionTargetNotificationSchemeLow"))
+            {
+                retval.SelectResolutionTargetNotificationSchemeLow(ResolutionTargetNotificationSchemeLow);
+            }
+            if (MyInvocation.BoundParameters.ContainsKey("ResolutionTargetNotificationSchemeMedium"))
+            {
+                retval.SelectResolutionTargetNotificationSchemeMedium(ResolutionTargetNotificationSchemeMedium);
+            }
+            if (MyInvocation.BoundParameters.ContainsKey("ResolutionTargetNotificationSchemeTop"))
+            {
+                retval.SelectResolutionTargetNotificationSchemeTop(ResolutionTargetNotificationSchemeTop);
+            }
+            if (MyInvocation.BoundParameters.ContainsKey("ResponseTargetNotificationSchemeHigh"))
+            {
+                retval.SelectResponseTargetNotificationSchemeHigh(ResponseTargetNotificationSchemeHigh);
+            }
+            if (MyInvocation.BoundParameters.ContainsKey("ResponseTargetNotificationSchemeLow"))
+            {
+                retval.SelectResponseTargetNotificationSchemeLow(ResponseTargetNotificationSchemeLow);
+            }
+            if (MyInvocation.BoundParameters.ContainsKey("ResponseTargetNotificationSchemeMedium"))
+            {
+                retval.SelectResponseTargetNotificationSchemeMedium(ResponseTargetNotificationSchemeMedium);
+            }
+            if (MyInvocation.BoundParameters.ContainsKey("ResponseTargetNotificationSchemeTop"))
+            {
+                retval.SelectResponseTargetNotificationSchemeTop(ResponseTargetNotificationSchemeTop);
+            }
             if (MyInvocation.BoundParameters.ContainsKey("Service"))
             {
                 retval.SelectService(Service);
@@ -350,22 +410,6 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
             if (MyInvocation.BoundParameters.ContainsKey("ShopArticles"))
             {
                 retval.SelectShopArticles(ShopArticles);
-            }
-            if (MyInvocation.BoundParameters.ContainsKey("SlaNotificationSchemeHigh"))
-            {
-                retval.SelectSlaNotificationSchemeHigh(SlaNotificationSchemeHigh);
-            }
-            if (MyInvocation.BoundParameters.ContainsKey("SlaNotificationSchemeLow"))
-            {
-                retval.SelectSlaNotificationSchemeLow(SlaNotificationSchemeLow);
-            }
-            if (MyInvocation.BoundParameters.ContainsKey("SlaNotificationSchemeMedium"))
-            {
-                retval.SelectSlaNotificationSchemeMedium(SlaNotificationSchemeMedium);
-            }
-            if (MyInvocation.BoundParameters.ContainsKey("SlaNotificationSchemeTop"))
-            {
-                retval.SelectSlaNotificationSchemeTop(SlaNotificationSchemeTop);
             }
             if (MyInvocation.BoundParameters.ContainsKey("StandardServiceRequests"))
             {

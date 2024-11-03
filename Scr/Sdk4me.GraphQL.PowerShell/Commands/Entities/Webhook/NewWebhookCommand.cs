@@ -19,7 +19,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
         public WebhookEvent Event { get; set; }
 
         /// <summary>
-        /// Publicly accessible URI that 4me can use to POST http messages to.
+        /// Publicly accessible URI that Xurrent can use to POST http messages to.
         /// </summary>
         [Parameter(Mandatory = true, Position = 1, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNullOrEmpty]

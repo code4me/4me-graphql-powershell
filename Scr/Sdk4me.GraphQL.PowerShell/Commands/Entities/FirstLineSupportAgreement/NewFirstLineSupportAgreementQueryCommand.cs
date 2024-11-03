@@ -99,44 +99,51 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
         public InvoiceQuery Invoices { get; set; } = new();
 
         /// <summary>
-        /// Specify the Provider to be returned using an organization query.
+        /// Specify the Major incident managers to be returned using a person query.
         /// </summary>
         [Parameter(Mandatory = false, Position = 12, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [ValidateNotNull]
+        public PersonQuery MajorIncidentManagers { get; set; } = new();
+
+        /// <summary>
+        /// Specify the Provider to be returned using an organization query.
+        /// </summary>
+        [Parameter(Mandatory = false, Position = 13, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public OrganizationQuery Provider { get; set; } = new();
 
         /// <summary>
         /// Specify the Remarks attachments to be returned using an attachment query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 13, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 14, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public AttachmentQuery RemarksAttachments { get; set; } = new();
 
         /// <summary>
         /// Specify the Service desk team to be returned using a team query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 14, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 15, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public TeamQuery ServiceDeskTeam { get; set; } = new();
 
         /// <summary>
         /// Specify the Support hours to be returned using a calendar query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 15, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 16, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public CalendarQuery SupportHours { get; set; } = new();
 
         /// <summary>
         /// Specify the Target details attachments to be returned using an attachment query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 16, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 17, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public AttachmentQuery TargetDetailsAttachments { get; set; } = new();
 
         /// <summary>
         /// An array of additional filters to apply to the a first line support agreement query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 17, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 18, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public QueryFilter<FirstLineSupportAgreementQuery>[] Filters { get; set; } = Array.Empty<QueryFilter<FirstLineSupportAgreementQuery>>();
 
@@ -192,6 +199,10 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
             if (MyInvocation.BoundParameters.ContainsKey("Invoices"))
             {
                 retval.SelectInvoices(Invoices);
+            }
+            if (MyInvocation.BoundParameters.ContainsKey("MajorIncidentManagers"))
+            {
+                retval.SelectMajorIncidentManagers(MajorIncidentManagers);
             }
             if (MyInvocation.BoundParameters.ContainsKey("Provider"))
             {

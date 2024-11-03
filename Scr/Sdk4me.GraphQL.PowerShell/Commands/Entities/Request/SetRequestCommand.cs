@@ -109,7 +109,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
         public RequestImpact? Impact { get; set; }
 
         /// <summary>
-        /// Used to provide information that is visible only for people who have the Auditor, Specialist or Account Administrator role of the account for which the internal note is intended. The X-4me-Account header sent determines the account.
+        /// Used to provide information that is visible only for people who have the Auditor, Specialist or Account Administrator role of the account for which the internal note is intended. The x-xurrent-account header sent determines the account.
         /// </summary>
         [Parameter(Mandatory = false, Position = 16, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? InternalNote { get; set; }

@@ -109,7 +109,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
         public string? Keywords { get; set; }
 
         /// <summary>
-        /// Whether the knowledge article needs to be available to anyone, including people without access to 4me.
+        /// Whether the knowledge article needs to be available to anyone, including people without access to Xurrent.
         /// </summary>
         [Parameter(Mandatory = false, Position = 15, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public bool Public { get; set; } = false;

@@ -33,23 +33,30 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
         public RequestTemplateQuery RequestTemplate { get; set; } = new();
 
         /// <summary>
-        /// Specify the Service offering to be returned using a service offering query.
+        /// Specify the Resolution target notification scheme to be returned using a service level agreement notification scheme query.
         /// </summary>
         [Parameter(Mandatory = false, Position = 3, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [ValidateNotNull]
+        public SlaNotificationSchemeQuery ResolutionTargetNotificationScheme { get; set; } = new();
+
+        /// <summary>
+        /// Specify the Response target notification scheme to be returned using a service level agreement notification scheme query.
+        /// </summary>
+        [Parameter(Mandatory = false, Position = 4, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [ValidateNotNull]
+        public SlaNotificationSchemeQuery ResponseTargetNotificationScheme { get; set; } = new();
+
+        /// <summary>
+        /// Specify the Service offering to be returned using a service offering query.
+        /// </summary>
+        [Parameter(Mandatory = false, Position = 5, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public ServiceOfferingQuery ServiceOffering { get; set; } = new();
 
         /// <summary>
-        /// Specify the SLA notification scheme to be returned using a service level agreement notification scheme query.
-        /// </summary>
-        [Parameter(Mandatory = false, Position = 4, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
-        [ValidateNotNull]
-        public SlaNotificationSchemeQuery SlaNotificationScheme { get; set; } = new();
-
-        /// <summary>
         /// Specify the Support hours to be returned using a calendar query.
         /// </summary>
-        [Parameter(Mandatory = false, Position = 5, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Mandatory = false, Position = 6, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNull]
         public CalendarQuery SupportHours { get; set; } = new();
 
@@ -73,13 +80,17 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
             {
                 retval.SelectRequestTemplate(RequestTemplate);
             }
+            if (MyInvocation.BoundParameters.ContainsKey("ResolutionTargetNotificationScheme"))
+            {
+                retval.SelectResolutionTargetNotificationScheme(ResolutionTargetNotificationScheme);
+            }
+            if (MyInvocation.BoundParameters.ContainsKey("ResponseTargetNotificationScheme"))
+            {
+                retval.SelectResponseTargetNotificationScheme(ResponseTargetNotificationScheme);
+            }
             if (MyInvocation.BoundParameters.ContainsKey("ServiceOffering"))
             {
                 retval.SelectServiceOffering(ServiceOffering);
-            }
-            if (MyInvocation.BoundParameters.ContainsKey("SlaNotificationScheme"))
-            {
-                retval.SelectSlaNotificationScheme(SlaNotificationScheme);
             }
             if (MyInvocation.BoundParameters.ContainsKey("SupportHours"))
             {

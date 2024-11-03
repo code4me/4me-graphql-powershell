@@ -81,7 +81,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
         public string? PictureUri { get; set; }
 
         /// <summary>
-        /// The unique identifier of the product that is used by the manufacturer. The concatenation of brand and productID must be unique within a 4me account.
+        /// The unique identifier of the product that is used by the manufacturer. The concatenation of brand and productID must be unique within a Xurrent account.
         /// </summary>
         [Parameter(Mandatory = false, Position = 11, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? ProductID { get; set; }

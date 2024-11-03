@@ -102,7 +102,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
         public RequestImpact? Impact { get; set; }
 
         /// <summary>
-        /// Used to provide information that is visible only for people who have the Auditor, Specialist or Account Administrator role of the account for which the internal note is intended. The X-4me-Account header sent determines the account.
+        /// Used to provide information that is visible only for people who have the Auditor, Specialist or Account Administrator role of the account for which the internal note is intended. The x-xurrent-account header sent determines the account.
         /// </summary>
         [Parameter(Mandatory = false, Position = 15, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? InternalNote { get; set; }
@@ -259,7 +259,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
         public string? SupplierRequestID { get; set; }
 
         /// <summary>
-        /// Used to specify the support domain account ID in which the request is to be registered. This parameter needs to be specified when the current user&apos;s Person record is registered in a directory account. The ID of a 4me account can be found in the &apos;Account Overview&apos; section of the Settings console.
+        /// Used to specify the support domain account ID in which the request is to be registered. This parameter needs to be specified when the current user&apos;s Person record is registered in a directory account. The ID of a Xurrent account can be found in the &apos;Account Overview&apos; section of the Settings console.
         /// </summary>
         [Parameter(Mandatory = false, Position = 41, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? SupportDomain { get; set; }

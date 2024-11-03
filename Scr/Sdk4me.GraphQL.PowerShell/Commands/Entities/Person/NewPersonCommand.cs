@@ -19,7 +19,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
-        /// The email address to which email notifications are to be sent. This email address acts as the unique identifier for the person within the 4me account. This primary email address also acts as the person&apos;s login name if he/she is a user of the 4me service.
+        /// The email address to which email notifications are to be sent. This email address acts as the unique identifier for the person within the Xurrent account. This primary email address also acts as the person&apos;s login name if he/she is a user of the Xurrent service.
         /// </summary>
         [Parameter(Mandatory = true, Position = 1, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         [ValidateNotNullOrEmpty]
@@ -224,7 +224,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
         public string[] TeamIds { get; set; } = Array.Empty<string>();
 
         /// <summary>
-        /// Whether the person prefers to see times displayed within the 4me service in the 24-hour format or not (in which case the 12-hour format is applied).
+        /// Whether the person prefers to see times displayed within the Xurrent service in the 24-hour format or not (in which case the 12-hour format is applied).
         /// </summary>
         [Parameter(Mandatory = false, Position = 35, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public bool TimeFormat24h { get; set; } = false;

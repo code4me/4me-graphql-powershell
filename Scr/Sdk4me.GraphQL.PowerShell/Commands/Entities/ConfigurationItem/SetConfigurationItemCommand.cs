@@ -217,7 +217,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
         public ProductCategoryRuleSet? RuleSet { get; set; }
 
         /// <summary>
-        /// Serial number of the configuration item. The concatenation of product&apos;s&apos; brand and serialNr must be unique within a 4me account.
+        /// Serial number of the configuration item. The concatenation of product&apos;s&apos; brand and serialNr must be unique within a Xurrent account.
         /// </summary>
         [Parameter(Mandatory = false, Position = 32, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? SerialNr { get; set; }

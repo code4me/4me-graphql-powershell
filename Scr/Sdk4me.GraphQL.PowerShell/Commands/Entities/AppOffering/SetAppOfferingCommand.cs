@@ -109,7 +109,7 @@ namespace Sdk4me.GraphQL.PowerShell.Commands
         public long? PolicyJwtClaimExpiresIn { get; set; }
 
         /// <summary>
-        /// This reference can be used to link the app offering to an instance using the 4me APIs or the 4me Import functionality.
+        /// This reference can be used to link the app offering to an instance using the Xurrent APIs or the Xurrent Import functionality.
         /// </summary>
         [Parameter(Mandatory = false, Position = 16, ValueFromPipeline = false, ValueFromPipelineByPropertyName = true)]
         public string? Reference { get; set; }

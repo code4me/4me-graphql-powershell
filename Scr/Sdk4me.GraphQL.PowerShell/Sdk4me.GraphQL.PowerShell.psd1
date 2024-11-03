@@ -3,7 +3,7 @@
     RootModule = 'Sdk4me.GraphQL.PowerShell.dll'
 
     # Version number of this module.
-    ModuleVersion = '1.4.2'
+    ModuleVersion = '1.4.3'
 
     # ID used to uniquely identify this module
     GUID = '3443686b-7b29-46dc-8798-aa15883f2864'
